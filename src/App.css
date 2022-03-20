@@ -3,8 +3,14 @@
 }
 
 .navbar {
+  padding-left: 50px;
   display: flex;
   flex-direction: row;
+}
 
+.eachDish {
+  padding-left: 50px;
+  display: flex;
+  flex-direction: row;
 }
 

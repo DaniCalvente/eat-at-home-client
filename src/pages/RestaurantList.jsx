@@ -38,13 +38,16 @@ function RestaurantList() {
 
   return (
     <div>
-      <h2>Restaurant in your City</h2>
+      <h2>Restaurant in {`${city[0].toUpperCase() + city.slice(1)}`}</h2> 
+    
       {cityRestaurants.map((eachRestaurant) => {
         return (
           <div>
-            {/* <Link> {`/restaurant/${eachRestaurant}/menu`} </Link>  */}
-            <h3>{eachRestaurant.restName}</h3>
-          </div>
+          <img src="" alt="Restaurant-img" />
+          <Link to={`/restaurant/${eachRestaurant._id}/menu`}><h3>{eachRestaurant.restName}</h3></Link>
+         <p>{eachRestaurant.foodType}</p>
+         </div>
+          
         )
       })}
 
