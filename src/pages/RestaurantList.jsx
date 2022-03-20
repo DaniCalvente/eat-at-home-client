@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
-import {Link, useNavigate} from "react-router-dom"
+import {Link, useNavigate, useParams} from "react-router-dom"
 
 function RestaurantList() {
     //1.Crear estado que controle la informacion
     const [cityRestaurants, setCityRestaurants] = useState (null)
     const navigate = useNavigate()
+    const {city} = useParams()
 
   //2. UseEfect (importarla)para buscar la informacion componentDidMount
   useEffect(() => {
@@ -15,8 +16,9 @@ function RestaurantList() {
 
   //3. La fx async que haga la llamada a la API y actualice el estado
   const getCityRestaurants = async () => {
+
     try{
-      const response = await axios.get("http://localhost:5005/api/restaurant/:city")
+      const response = await axios.get(`http://localhost:5005/api/restaurant/${city}`)
       console.log(response)
       setCityRestaurants(response.data)
 
@@ -37,13 +39,14 @@ function RestaurantList() {
   return (
     <div>
       <h2>Restaurant in your City</h2>
-      {/* {cityRestaurants.map((eachRestaurant) => {
+      {cityRestaurants.map((eachRestaurant) => {
         return (
           <div>
-            <Link> {`/restaurant/${eachRestaurant._id/menu}`} </Link> 
+            {/* <Link> {`/restaurant/${eachRestaurant}/menu`} </Link>  */}
+            <h3>{eachRestaurant.restName}</h3>
           </div>
         )
-      })} */}
+      })}
 
     </div>
   )
