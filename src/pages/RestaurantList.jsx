@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 import {Link, useNavigate, useParams} from "react-router-dom"
+import {getCityRestaurantsService} from "../services/restaurant.services"
 
 function RestaurantList() {
     //1.Crear estado que controle la informacion
@@ -18,8 +19,8 @@ function RestaurantList() {
   const getCityRestaurants = async () => {
 
     try{
-      const response = await axios.get(`http://localhost:5005/api/restaurant/${city}`)
-      console.log(response)
+      const response = await getCityRestaurantsService(city)
+      // console.log(response)
       setCityRestaurants(response.data)
 
     }catch(err){

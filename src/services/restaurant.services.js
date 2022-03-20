@@ -3,10 +3,15 @@
 
 import axios from "axios"
 
-const getCityRestaurantsService = () => {
+const getCityRestaurantsService = (city) => {
 return axios.get(`http://localhost:5005/api/restaurant/${city}`)
 }
 
-const getRestaurantMenuService = () => {
+const getRestaurantMenuService = (_id) => {
     return axios.get(`http://localhost:5005/api/restaurant/${_id}/menu`)  
+}
+
+export {
+    getCityRestaurantsService,
+    getRestaurantMenuService,
 }

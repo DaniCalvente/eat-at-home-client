@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate, Link } from "react-router-dom"
 import axios from "axios"
+import {getRestaurantMenuService} from "../services/restaurant.services"
 
 
 function RestaurantMenu() {
@@ -14,8 +15,8 @@ function RestaurantMenu() {
 
   const getRestaurantMenu = async () => {
     try{
-      const response = await axios.get(`http://localhost:5005/api/restaurant/${_id}/menu`)
-      console.log(response);
+      const response = await getRestaurantMenuService(_id)
+      // console.log(response);
       setRestMenu(response.data)
     } catch(err) {
       navigate("/error")
