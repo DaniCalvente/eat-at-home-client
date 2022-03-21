@@ -14,12 +14,12 @@ service.interceptors.request.use((config) => {
   return config;
 });
 
-const signupService = (username) => {
-  return service.post("/signup", username);
+const signupService = (user) => {
+  return service.post("/signup", user);
 };
 
-const loginService = (username) => {
-  return service.post("/login", username);
+const loginService = (user) => {
+  return service.post("/login", user);
 };
 
 const verifyService = () => {

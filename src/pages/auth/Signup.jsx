@@ -22,7 +22,9 @@ function Signup() {
     // enviar usuario al backend para crear el registro
     try {
       await signupService(user)
+      console.log(user);
       navigate("/login")
+      
     } catch(err) {
       if (err.response && err.response.status === 400) {
         setErrorMessage(err.response.data.errorMessage)
@@ -37,7 +39,7 @@ function Signup() {
     <div>
     <h3>Create User</h3>
     
-    <form >
+    <form onSubmit={handleSubmit}>
 
     <label htmlFor="username">Username: </label>
     <input 
@@ -94,7 +96,7 @@ function Signup() {
 
     </form>
 
-    <p>{errorMessage}</p>
+    {/* <p>{errorMessage}</p> */}
     
     </div>
   )
