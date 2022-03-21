@@ -3,12 +3,16 @@
 
 import axios from "axios"
 
+const service = axios.create({
+    baseURL:`${process.env.REACT_APP_SERVER_URL}/restaurant`
+})
+
 const getCityRestaurantsService = (city) => {
-return axios.get(`http://localhost:5005/api/restaurant/${city}`)
+return service.get(`/${city}`)
 }
 
-const getRestaurantMenuService = (_id) => {
-    return axios.get(`http://localhost:5005/api/restaurant/${_id}/menu`)  
+const getRestaurantMenuService = (id) => {
+    return service.get(`/menu/${id}`)  
 }
 
 export {

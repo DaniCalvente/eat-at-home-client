@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import axios from "axios"
 import {Link, useNavigate, useParams} from "react-router-dom"
 import {getCityRestaurantsService} from "../services/restaurant.services"
 
@@ -45,8 +44,9 @@ function RestaurantList() {
         return (
           <div>
           <img src="" alt="Restaurant-img" />
-          <Link to={`/restaurant/${eachRestaurant._id}/menu`}><h3>{eachRestaurant.restName}</h3></Link>
+          <Link to={`/restaurant/menu/${eachRestaurant._id}`}><h3>{eachRestaurant.restName}</h3></Link>
          <p>{eachRestaurant.foodType}</p>
+
          </div>
           
         )
