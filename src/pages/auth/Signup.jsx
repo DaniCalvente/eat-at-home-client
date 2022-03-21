@@ -46,6 +46,7 @@ function Signup() {
     value={username}
     onChange={(e) => setUsername(e.target.value)}  
     />
+    
 <br />
 <label htmlFor="email">Email: </label>
     <input 

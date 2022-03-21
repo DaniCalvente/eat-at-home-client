@@ -7,7 +7,6 @@ function RestaurantMenu() {
   const [restMenu, setRestMenu] = useState(null)
   const navigate = useNavigate()
   const {id} = useParams()
-  console.log(id)
 
   useEffect(() => {
     getRestaurantMenu()
