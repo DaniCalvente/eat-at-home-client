@@ -8,6 +8,7 @@ import NotFound from './pages/NotFound';
 import Navbar from './components/Navbar';
 import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
+import Owner from './pages/Owner';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
     <Route path='/' element={ <Home />} />
     <Route path='/restaurant/:city' element={ <RestaurantList />} />
     <Route path='/restaurant/menu/:id' element={ <RestaurantMenu/>} />
+    <Route path='/restaurant/owner' element={ <Owner/>} />
 
     <Route path='/login' element={<Login />}/>
     <Route path='/signup' element={<Signup />}/>

@@ -25,8 +25,13 @@ return service.get(`/${city}`)
 const getRestaurantMenuService = (id) => {
     return service.get(`/menu/${id}`)  
 }
+const addRestaurantService = (newRestaurant) => {
+    return service.post(`/owner`, newRestaurant)  
+}
 
 export {
     getCityRestaurantsService,
     getRestaurantMenuService,
+    addRestaurantService
+
 }

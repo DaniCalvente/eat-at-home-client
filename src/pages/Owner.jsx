@@ -1,9 +1,12 @@
-
+import AddRestForm from "../components/AddRestForm";
 
 function Owner() {
   return (
-    <div>Owner</div>
-  )
+    <div>
+      <h3> OWNER PROFILE</h3>
+      <AddRestForm />
+    </div>
+  );
 }
 
-export default Owner
+export default Owner;
