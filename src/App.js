@@ -24,7 +24,7 @@ function App() {
     <Route path='/restaurant/:city' element={ <RestaurantList />} />
     <Route path='/restaurant/menu/:id' element={ <RestaurantMenu/>} />
     <Route path='/restaurant/owner' element={ <Owner/>} />
-    <Route path='/restaurant/edit' element={ <RestaurantEdit /> }/>
+    <Route path='/restaurant/edit/:id' element={ <RestaurantEdit /> }/>
 
     <Route path='/login' element={<Login />}/>
     <Route path='/signup' element={<Signup />}/>

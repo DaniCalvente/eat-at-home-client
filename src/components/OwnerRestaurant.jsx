@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getMyRestaurantsService } from "../services/restaurant.services";
 
 function OwnerRestaurant() {
@@ -32,9 +32,9 @@ function OwnerRestaurant() {
         return (
           <div>
             <span>{eachRestaurant.restName}</span>
-            <button>Editar Restaurante</button>
-            <button>Eliminar Restaurante</button>
-            <button>Editar Menu</button>
+            
+           
+            <Link to={`/restaurant/edit/${eachRestaurant._id}`}><button>Editar Restaurante</button></Link>
           </div>
         );
       })}

@@ -69,6 +69,10 @@ function RestaurantEdit() {
         <button>Actualizar</button>
       </form>
 
+      <button>Eliminar Restaurante</button>
+
+      <button>Crear Plato</button>
+
 
     </div>
   )
