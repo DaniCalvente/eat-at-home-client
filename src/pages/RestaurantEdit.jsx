@@ -65,11 +65,11 @@ function RestaurantEdit() {
 
     return (
       <div>
-        <h3>Editar Restaurante</h3>
+        <h3>Edit Restaurant</h3>
 
         <form onSubmit={handleSubmit}>
           
-          <label htmlFor="restName">Nombre:</label>
+          <label htmlFor="restName">Name:</label>
           <input
             type="text"
             name="restName"
@@ -77,7 +77,7 @@ function RestaurantEdit() {
             onChange={(e) => setRestName(e.target.value)}
           />
           <br />
-          <label htmlFor="foodType">Cocina:</label>
+          <label htmlFor="foodType">Food Type:</label>
           <input
             type="text"
             name="foodType"
@@ -85,7 +85,7 @@ function RestaurantEdit() {
             onChange={(e) => setFoodType(e.target.value)}
           />
           <br />
-          <label htmlFor="city">Ciudad:</label>
+          <label htmlFor="city">City:</label>
           <input
             type="text"
             name="city"
@@ -93,7 +93,7 @@ function RestaurantEdit() {
             onChange={(e) => setCity(e.target.value)}
           />
           <br />
-          <label htmlFor="address">Direccion:</label>
+          <label htmlFor="address">Address:</label>
           <input
             type="text"
             name="address"
@@ -101,7 +101,7 @@ function RestaurantEdit() {
             onChange={(e) => setAddress(e.target.value)}
           />
           <br />
-          <label htmlFor="postCode">Codigo Postal:</label>
+          <label htmlFor="postCode">Post Code:</label>
           <input
             type="text"
             name="postCode"
@@ -117,10 +117,10 @@ function RestaurantEdit() {
         onChange={handleRestImg}     
 
       <br />/> */}
-          <button>Actualizar</button>
+          <button>Update Restaurant</button>
         </form>
 
-        <button onClick={handleDelete}>Eliminar Restaurante</button>
+        <button onClick={handleDelete}>Delete Restaurant</button>
 
         
       </div>

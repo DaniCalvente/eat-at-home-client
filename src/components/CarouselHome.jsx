@@ -1,16 +1,15 @@
 import { useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
+import Image from "react-bootstrap/Image";
 
 
 function CarouselHome() {
   return (
     <Carousel>
       <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=373940"
-          alt="Enter your location"
-        />
+
+        <Image source= "../../public/images/multiplesCards.jpeg"
+       style={{width: 200, height: 200}} />
         <Carousel.Caption>
           <h3>Enter your location</h3>
           <p>Enter your street address or let us find your location.</p>
@@ -18,8 +17,8 @@ function CarouselHome() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
+          
+          src="./public/images/Delivery-food.jpeg"
           alt="Second slide"
         />
 
@@ -30,7 +29,7 @@ function CarouselHome() {
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-100"
+          
           src="../../public/images/multiplesCards2.png"
           alt="Third slide"
         />

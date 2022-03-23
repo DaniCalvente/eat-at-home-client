@@ -36,8 +36,8 @@ function AddRestForm(props) {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <p>Crea tu restaurante</p>
-        <label htmlFor="restName">Nombre:</label>
+        <p>Add Restaurant</p>
+        <label htmlFor="restName">Name:</label>
         <input
           type="text"
           name="restName"
@@ -47,7 +47,7 @@ function AddRestForm(props) {
 
         <br />
 
-        <label htmlFor="foodType">Cocina:</label>
+        <label htmlFor="foodType">Food Type:</label>
         <input
           type="text"
           name="foodType"
@@ -57,7 +57,7 @@ function AddRestForm(props) {
 
         <br />
 
-        <label htmlFor="city">Ciudad:</label>
+        <label htmlFor="city">City:</label>
         <input
           type="text"
           name="city"
@@ -66,7 +66,7 @@ function AddRestForm(props) {
         />
         <br />
 
-        <label htmlFor="address">Direccion:</label>
+        <label htmlFor="address">Address:</label>
         <input
           type="text"
           name="addreess"
@@ -75,7 +75,7 @@ function AddRestForm(props) {
         />
 
         <br />
-        <label htmlFor="postCode">Codigo Postal:</label>
+        <label htmlFor="postCode">Post Code:</label>
         <input
           type="text"
           name="postCode"
@@ -93,7 +93,7 @@ function AddRestForm(props) {
 
       <br />/> */}
 
-        <button>Crear</button>
+        <button>Add</button>
       </form>
     </div>
   );

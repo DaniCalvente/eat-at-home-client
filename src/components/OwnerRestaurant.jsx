@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getMyRestaurantsService } from "../services/restaurant.services";
+import ListGroup from "react-bootstrap/ListGroup";
 
 function OwnerRestaurant(props) {
   // const [myRestaurants, setMyRestaurants] = useState(null);
@@ -26,7 +27,7 @@ function OwnerRestaurant(props) {
 
   return (
     <div>
-      <h4> Mis Restaurantes</h4>
+      <h4> My Restaurants</h4>
       <ListGroup as="ol" numbered>
         <ListGroup.Item as="li">
           {props.myRestaurants.map((eachRestaurant) => {
@@ -35,10 +36,10 @@ function OwnerRestaurant(props) {
                 <span>{eachRestaurant.restName}</span>
 
                 <Link to={`/restaurant/edit/${eachRestaurant._id}`}>
-                  <button>Editar Restaurante</button>
+                  <button>Edit Restaurant</button>
                 </Link>
                 <Link to={`/restaurant/menu/${eachRestaurant._id}`}>
-                  <button>Editar Menu</button>
+                  <button>Edit Menu</button>
                 </Link>
               </div>
             );
