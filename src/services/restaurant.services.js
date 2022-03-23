@@ -29,14 +29,27 @@ const addRestaurantService = (newRestaurant) => {
     return service.post(`/owner`, newRestaurant)  
 }
 
-const getMyRestaurantsService = (id) => {
-    return service.get(`/owner/:id`, id)
+const getMyRestaurantsService = () => {
+    return service.get(`/owner`)
+}
+
+const getRestaurantInfoService = (id) => {
+    return service.get(`/edit/${id}`)
+}
+const editRestaurantService = (id, updateRestaurant) => {
+    return service.patch(`/edit/${id}`, updateRestaurant)
+}
+
+const deleteRestaurantService = (id) => {
+    return service.delete(`/delete/${id}`)
 }
 
 export {
     getCityRestaurantsService,
     getRestaurantMenuService,
     addRestaurantService,
-    getMyRestaurantsService
-
+    getMyRestaurantsService,
+    getRestaurantInfoService,
+    editRestaurantService,
+    deleteRestaurantService,
 }

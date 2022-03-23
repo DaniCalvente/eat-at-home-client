@@ -35,6 +35,7 @@ function OwnerRestaurant() {
             
            
             <Link to={`/restaurant/edit/${eachRestaurant._id}`}><button>Editar Restaurante</button></Link>
+            <Link to={`/restaurant/menu/${eachRestaurant._id}`}><button>Editar Menu</button></Link>
           </div>
         );
       })}

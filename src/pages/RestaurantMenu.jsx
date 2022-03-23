@@ -23,6 +23,10 @@ function RestaurantMenu() {
 
   }
 
+  const handleEdit = () => {
+    navigate(`/menu/edit/${id}`)
+  }
+
    //4. Sistema de loading
 
    if(!restMenu) {
@@ -39,6 +43,7 @@ function RestaurantMenu() {
         {/* <Link to={`/restaurant/${eachRestMenu._id}/menu`}><h3>{eachRestMenu.name}</h3></Link> */}
         <h3>{eachRestMenu.name}</h3>
          <p>{eachRestMenu.price} $</p> 
+         <button onClick={handleEdit}>Editar Plato</button>
         </div>
       )
 
