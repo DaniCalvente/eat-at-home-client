@@ -1,22 +1,54 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
+import Button from "react-bootstrap/Button";
 
-function Navbar() {
+function Navbar(props) {
+  
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+
+    localStorage.removeItem("authToken")
+    navigate("/")
+    // remueven el token de la
+    // redirigen al usuario
+  }
+
   return (
-    <div className="navbar">
-      <div className="navHome">
-        <NavLink to="/">Home</NavLink>
-      </div>
-
-      <div className="navSignLog">
-        <NavLink to="/signup">Signup</NavLink>
-
-        <NavLink to="/login">Login</NavLink>
-      </div>
-
-      <div className="navLogout">
-        <NavLink to="/">Logout</NavLink>
-      </div>
+    <Nav fill variant="tabs" defaultActiveKey="/home">
+      <Nav.Item>
+        <Nav.Link>
+        <NavLink to="/">
+        <div className="mb-2">
+    <Button variant="primary" size="lg">
+      Home
+    </Button>
     </div>
+        </NavLink>
+        </Nav.Link>
+      </Nav.Item>
+
+
+      <Nav.Item><Nav.Link>
+        <NavLink to="/signup">
+        <div className="mb-2">
+    <Button variant="primary" size="lg">
+      Login
+    </Button>
+    </div>
+    
+
+        </NavLink>
+        </Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <NavLink to="/login">Login</NavLink>
+      </Nav.Item>
+
+      <button to="/" onClick={handleLogout}>Logout</button> 
+    <Nav.Link></Nav.Link>
+    <Nav.Link></Nav.Link>
+    </Nav>
   );
 }
 

@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import CarouselHome from "../components/CarouselHome";
+
 
 function Home() {
   const arrCity = [
@@ -55,6 +57,7 @@ function Home() {
           <button>Enter</button>
         </form>
       </div>
+      <CarouselHome/>
     </div>
   );
 }
