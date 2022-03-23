@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate, Link } from "react-router-dom"
 import {getRestaurantMenuService} from "../services/restaurant.services"
+import {deleteItemMenuService} from "../services/menu.services"
 
 
 function RestaurantMenu() {
@@ -16,7 +17,8 @@ function RestaurantMenu() {
     try{
       const response = await getRestaurantMenuService(id)
       // console.log(response);
-      setRestMenu(response.data)
+      setRestMenu(response.data.menuItems)
+      console.log(response.data.isOwner); //! este booleano, lo vamos a guardar en un estado, y luego ese estado lo utilizaremos para habilitar determinadas funciones
     } catch(err) {
       navigate("/error")
     }
@@ -24,7 +26,17 @@ function RestaurantMenu() {
   }
 
   const handleEdit = () => {
-    navigate(`/menu/edit/${id}`)
+    navigate(`/restaurant/menu/edit/${id}`)
+  }
+
+  const handleDelete = async (menuId) => {
+    try{
+     await deleteItemMenuService(menuId)
+     getRestaurantMenu()
+
+    } catch(err) {
+      navigate("/error")
+    }
   }
 
    //4. Sistema de loading
@@ -36,6 +48,8 @@ function RestaurantMenu() {
 
   return (
     <div>
+
+    {/* <button onClick={handleNew}>New Dish</button> */}
     
     {restMenu.map((eachRestMenu) => {
       return (
@@ -43,7 +57,8 @@ function RestaurantMenu() {
         {/* <Link to={`/restaurant/${eachRestMenu._id}/menu`}><h3>{eachRestMenu.name}</h3></Link> */}
         <h3>{eachRestMenu.name}</h3>
          <p>{eachRestMenu.price} $</p> 
-         <button onClick={handleEdit}>Editar Plato</button>
+         <button onClick={handleEdit}>Edit</button>
+         <button onClick={()=>handleDelete(eachRestMenu._id)}>Delete</button>
         </div>
       )
 

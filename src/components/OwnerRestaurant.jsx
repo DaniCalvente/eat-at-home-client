@@ -2,25 +2,25 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getMyRestaurantsService } from "../services/restaurant.services";
 
-function OwnerRestaurant() {
-  const [myRestaurants, setMyRestaurants] = useState(null);
-  const navigate = useNavigate();
+function OwnerRestaurant(props) {
+  // const [myRestaurants, setMyRestaurants] = useState(null);
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    getMyRestaurants();
-  }, []);
+  // useEffect(() => {
+  //   getMyRestaurants();
+  // }, []);
 
-  const getMyRestaurants = async () => {
-    try {
-      const response = await getMyRestaurantsService();
-      console.log(response);
-      setMyRestaurants(response.data);
-    } catch (err) {
-      navigate("/error");
-    }
-  };
+  // const getMyRestaurants = async () => {
+  //   try {
+  //     const response = await getMyRestaurantsService();
+  //     console.log(response);
+  //     setMyRestaurants(response.data);
+  //   } catch (err) {
+  //     navigate("/error");
+  //   }
+  // };
 
-  if (!myRestaurants) {
+  if (!props.myRestaurants) {
     return <h3>...Loading</h3>;
   }
 
@@ -28,7 +28,7 @@ function OwnerRestaurant() {
     <div>
       <h4> Mis Restaurantes</h4>
 
-      {myRestaurants.map((eachRestaurant) => {
+      {props.myRestaurants.map((eachRestaurant) => {
         return (
           <div>
             <span>{eachRestaurant.restName}</span>

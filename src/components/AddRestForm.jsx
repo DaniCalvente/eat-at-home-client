@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {addRestaurantService} from '../services/restaurant.services'
 
-function AddRestForm() {
+function AddRestForm(props) {
   const [restName, setRestName] = useState("");
   const [foodType, setFoodType] = useState("");
   const [city, setCity] = useState("");
@@ -22,6 +22,7 @@ function AddRestForm() {
       
       const response = await addRestaurantService(newRestaurant)
       console.log(newRestaurant);
+      props.getMyRestaurants()
       setRestName("")
       setFoodType("")
       setCity("")

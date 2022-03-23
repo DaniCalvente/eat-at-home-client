@@ -26,6 +26,10 @@ function App() {
     <Route path='/restaurant/owner' element={ <Owner/>} />
     <Route path='/restaurant/edit/:id' element={ <RestaurantEdit /> }/>
 
+    
+    
+    
+
     <Route path='/login' element={<Login />}/>
     <Route path='/signup' element={<Signup />}/>
 
