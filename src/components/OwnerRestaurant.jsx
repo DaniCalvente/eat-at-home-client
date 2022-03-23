@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { getMyRestaurantsService } from "../services/restaurant.services";
 
 function OwnerRestaurant() {
-    const [myRestaurants, setMyRestaurants] = useState("");
+    const [myRestaurants, setMyRestaurants] = useState(null);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -14,6 +14,7 @@ function OwnerRestaurant() {
     const getMyRestaurants = async () => {
         try {
             const response = await getMyRestaurantsService()
+            console.log(response)
             setMyRestaurants(response.data)
             
         }catch(err) {
@@ -28,10 +29,12 @@ function OwnerRestaurant() {
   return (
     <div>
 
-        <h4> Mi Restaurante</h4>
+        <h4> Mis Restaurantes</h4>
 
         {myRestaurants.map((eachRestaurant) => {
-            <p>{eachRestaurant.restName}</p>
+            return(
+                <p>{eachRestaurant.restName}</p>
+            )
         })}
 
 
