@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CarouselHome from "../components/CarouselHome";
 import Figure from "react-bootstrap/Figure";
 import logo_EAT_Img from "../images/logo_EAT.png";
+import Form from "react-bootstrap/Form";
 
 function Home(props) {
   const arrCity = [
@@ -39,26 +40,24 @@ function Home(props) {
     console.log(event.target.value);
   };
   return (
-    <div>
-      <img width="400px" src={logo_EAT_Img} alt="delivery" />
+    <div className="logoHome">
+      <img width="500px" src={logo_EAT_Img} alt="delivery" />
 
       <div>
-        { props.user?.role !== "owner" &&
-          <form className="searchForm" onSubmit={handleSubmit}>
-            <label htmlFor="city">Select your city </label>
-            <select
-              name="city"
-              value={searchCityRestaurant}
-              onChange={handleSelect}
-            >
-              {arrCity.map((eachCity) => {
-                return <option value={eachCity}>{eachCity}</option>;
-              })}
-            </select>
+        <form className="searchForm" onSubmit={handleSubmit}>
+          <Form.Select
+            aria-label="Default select example"
+            value={searchCityRestaurant}
+            onChange={handleSelect}
+          >
+            <option>Select your city</option>
+            {arrCity.map((eachCity) => {
+              return <option value={eachCity}>{eachCity}</option>;
+            })}
+          </Form.Select>
 
-            <button>Enter</button>
-          </form>
-        }
+          <button>Enter</button>
+        </form>
       </div>
       <div className="carousel">
         <CarouselHome />
