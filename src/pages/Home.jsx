@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CarouselHome from "../components/CarouselHome";
+import Figure from "react-bootstrap/Figure"
+import logo_EAT_Img from "../images/logo_EAT.png"
+
 
 
 
@@ -40,7 +43,7 @@ function Home() {
   };
   return (
     <div>
-      <h1>Eat at Home</h1>
+      <img width="400px" src={logo_EAT_Img} alt="delivery" />
 
       <div>
         
@@ -59,7 +62,8 @@ function Home() {
           <button>Enter</button>
         </form>
       </div>
-      <CarouselHome/>
+      <div className="carousel"><CarouselHome/></div>
+      
     </div>
   );
 }

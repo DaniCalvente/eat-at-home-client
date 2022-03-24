@@ -38,7 +38,7 @@ function RestaurantList() {
 
   return (
     <div>
-      <h2>Restaurant in {`${city[0].toUpperCase() + city.slice(1)}`}</h2> 
+      <h2>Restaurants in {`${city[0].toUpperCase() + city.slice(1)}`}</h2> 
     
       {cityRestaurants.map((eachRestaurant) => {
         return (
