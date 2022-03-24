@@ -25,6 +25,11 @@ return service.get(`/${city}`)
 const getRestaurantMenuService = (id) => {
     return service.get(`/menu/${id}`)  
 }
+
+const addMenuItemService = (id, newMenuItem) => {
+    return service.post(`/menu/${id}`, newMenuItem)
+  }
+
 const addRestaurantService = (newRestaurant) => {
     return service.post(`/owner`, newRestaurant)  
 }
@@ -52,4 +57,5 @@ export {
     getRestaurantInfoService,
     editRestaurantService,
     deleteRestaurantService,
+    addMenuItemService,
 }
