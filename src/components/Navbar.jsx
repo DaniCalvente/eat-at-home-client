@@ -1,6 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
+import userEvent from "@testing-library/user-event";
 
 function Navbar(props) {
   const navigate = useNavigate();
@@ -27,7 +28,21 @@ function Navbar(props) {
             </NavLink>
           </Nav.Link>
         </Nav.Item>
-        
+
+
+      
+       { props.user?.role === "owner" && <Nav.Item>
+          <Nav.Link>
+            <NavLink to="/restaurant/owner">
+              <div className="mb-2">
+                <Button variant="primary" size="lg">
+                  Owner Profile
+                </Button>
+              </div>
+            </NavLink>
+          </Nav.Link>
+        </Nav.Item>
+       }
   
         <Nav.Item>
           <Nav.Link>

@@ -49,11 +49,11 @@ function App() {
   return (
     <div className="App">
 
-    <Navbar isLoggedIn={isLoggedIn} getUserInfo={getUserInfo}/>  
+    <Navbar isLoggedIn={isLoggedIn} getUserInfo={getUserInfo} user={user}/>  
 
     <Routes>
 
-    <Route path='/' element={ <Home />} />
+    <Route path='/' element={ <Home user={user}/>} />
     <Route path='/restaurant/:city' element={ <RestaurantList />} />
     <Route path='/restaurant/menu/:id' element={ <RestaurantMenu/>} />
     <Route path='/restaurant/owner' element={ <Owner/>} />

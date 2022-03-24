@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CarouselHome from "../components/CarouselHome";
-import Figure from "react-bootstrap/Figure"
-import logo_EAT_Img from "../images/logo_EAT.png"
+import Figure from "react-bootstrap/Figure";
+import logo_EAT_Img from "../images/logo_EAT.png";
 
-
-
-
-function Home() {
+function Home(props) {
   const arrCity = [
     "Atenas",
     "Madrid",
@@ -46,24 +43,26 @@ function Home() {
       <img width="400px" src={logo_EAT_Img} alt="delivery" />
 
       <div>
-        
-        <form className="searchForm" onSubmit={handleSubmit}>
-          <label htmlFor="city">Select your city </label>
-          <select
-            name="city"
-            value={searchCityRestaurant}
-            onChange={handleSelect}
-          >
-            {arrCity.map((eachCity) => {
-              return <option value={eachCity}>{eachCity}</option>;
-            })}
-          </select>
+        { props.user?.role !== "owner" &&
+          <form className="searchForm" onSubmit={handleSubmit}>
+            <label htmlFor="city">Select your city </label>
+            <select
+              name="city"
+              value={searchCityRestaurant}
+              onChange={handleSelect}
+            >
+              {arrCity.map((eachCity) => {
+                return <option value={eachCity}>{eachCity}</option>;
+              })}
+            </select>
 
-          <button>Enter</button>
-        </form>
+            <button>Enter</button>
+          </form>
+        }
       </div>
-      <div className="carousel"><CarouselHome/></div>
-      
+      <div className="carousel">
+        <CarouselHome />
+      </div>
     </div>
   );
 }

@@ -7,6 +7,7 @@ import AddMenuItemForm from "../components/AddMenuItemForm"
 
 function RestaurantMenu() {
   const [restMenu, setRestMenu] = useState(null)
+  const [ isOwner, setIsOwner ] = useState(null)
   const navigate = useNavigate()
   const {id} = useParams()
 
@@ -20,6 +21,7 @@ function RestaurantMenu() {
       // console.log(response);
       setRestMenu(response.data.menuItems)
       console.log(response.data.isOwner); //! este booleano, lo vamos a guardar en un estado, y luego ese estado lo utilizaremos para habilitar determinadas funciones
+    setIsOwner(response.data.isOwner)
     } catch(err) {
       navigate("/error")
     }
@@ -60,8 +62,10 @@ function RestaurantMenu() {
         {/* <Link to={`/restaurant/${eachRestMenu._id}/menu`}><h3>{eachRestMenu.name}</h3></Link> */}
         <h3>{eachRestMenu.name}</h3>
          <p>{eachRestMenu.price} $</p> 
-         <button onClick={()=>handleEdit(eachRestMenu._id)}>Edit</button>
-         <button onClick={()=>handleDelete(eachRestMenu._id)}>Delete</button>
+         {isOwner && <button onClick={()=>handleEdit(eachRestMenu._id)}>Edit</button>}
+         {isOwner && <button onClick={()=>handleDelete(eachRestMenu._id)}>Delete</button>}
+         
+         
         </div>
       )
 

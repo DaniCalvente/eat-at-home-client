@@ -1,8 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { addMenuItemService } from "../services/restaurant.services";
 
 function AddMenuItemForm() {
+ const {id} = useParams()
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
@@ -18,7 +20,8 @@ function AddMenuItemForm() {
     try {
       const newMenuItem = { name, description, price, dishType, allergens };
 
-      const response = await addMenuItemService(newMenuItem)
+      const response = await addMenuItemService( id, newMenuItem)
+      console.log(response);
       setName("");
       setDescription("");
       setPrice("");
@@ -42,7 +45,7 @@ function AddMenuItemForm() {
           type="text"
           name="name"
           value={name}
-        //   onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
         <br />
         <label htmlFor="description">Description: </label>
@@ -50,7 +53,7 @@ function AddMenuItemForm() {
           type="text"
           name="description"
           value={description}
-        //   onChange={(e) => setDescription(e.target.value)}
+          onChange={(e) => setDescription(e.target.value)}
         />
         <br />
         <label htmlFor="price">Price: </label>
@@ -58,7 +61,7 @@ function AddMenuItemForm() {
           type="text"
           name="price"
           value={price}
-        //   onChange={(e) => setPrice(e.target.value)}
+          onChange={(e) => setPrice(e.target.value)}
         />
         <br />
         <label htmlFor="dishType">Dish Type: </label>
@@ -66,7 +69,7 @@ function AddMenuItemForm() {
           type="text"
           name="dishType"
           value={dishType}
-        //   onChange={(e) => setDishType(e.target.value)}
+          onChange={(e) => setDishType(e.target.value)}
         />
         <br />
         <label htmlFor="allergens">Allergens: </label>
@@ -74,7 +77,7 @@ function AddMenuItemForm() {
           type="text"
           name="allergens"
           value={allergens}
-        //   onChange={(e) => setAllergens(e.target.value)}
+          onChange={(e) => setAllergens(e.target.value)}
         />
 
         <button>Submit</button>
