@@ -18,6 +18,14 @@ service.interceptors.request.use((config) => {
     return config;
   })
 
+  const getMenuItemInfoService = (id) => {
+    return service.get(`/menu/${id}`)
+  }
+
+  const editmenuItemService = (id, menuItem) => {
+    return service.patch(`/menu/edit/${id}`, menuItem)
+  }
+
   const deleteItemMenuService = (id) => {
       return service.delete(`/menu/delete/${id}`)
   }
@@ -25,4 +33,6 @@ service.interceptors.request.use((config) => {
 
   export {
     deleteItemMenuService,
+    getMenuItemInfoService,
+    editmenuItemService,
   }

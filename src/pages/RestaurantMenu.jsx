@@ -25,8 +25,8 @@ function RestaurantMenu() {
 
   }
 
-  const handleEdit = () => {
-    navigate(`/restaurant/menu/edit/${id}`)
+  const handleEdit = (menuId) => {
+    navigate(`/restaurant/menu/edit/${menuId}`)
   }
 
   const handleDelete = async (menuId) => {
@@ -57,7 +57,7 @@ function RestaurantMenu() {
         {/* <Link to={`/restaurant/${eachRestMenu._id}/menu`}><h3>{eachRestMenu.name}</h3></Link> */}
         <h3>{eachRestMenu.name}</h3>
          <p>{eachRestMenu.price} $</p> 
-         <button onClick={handleEdit}>Edit</button>
+         <button onClick={()=>handleEdit(eachRestMenu._id)}>Edit</button>
          <button onClick={()=>handleDelete(eachRestMenu._id)}>Delete</button>
         </div>
       )

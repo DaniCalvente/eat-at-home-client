@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { getMyRestaurantsService } from "../services/restaurant.services";
 
 function Owner() {
+  
   const [myRestaurants, setMyRestaurants] = useState(null);
   const navigate = useNavigate();
 

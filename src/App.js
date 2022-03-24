@@ -11,6 +11,7 @@ import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import Owner from './pages/Owner';
 import RestaurantEdit from './pages/RestaurantEdit'
+import MenuEdit from './pages/MenuEdit'
 
 
 function App() {
@@ -27,8 +28,8 @@ function App() {
     <Route path='/restaurant/owner' element={ <Owner/>} />
     <Route path='/restaurant/edit/:id' element={ <RestaurantEdit /> }/>
 
-    
-    
+
+    <Route path='/restaurant/menu/edit/:id' element={ <MenuEdit /> } />   
     
 
     <Route path='/login' element={<Login />}/>
