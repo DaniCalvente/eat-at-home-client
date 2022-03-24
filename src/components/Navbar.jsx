@@ -53,7 +53,7 @@ function Navbar(props) {
         <Nav.Link>
         <NavLink to="/login">
             <div className="mb-2">
-              <Button to="/" onClick={handleLogout}variant="secundary" size="lg" bgColor="red">
+              <Button to="/" onClick={handleLogout}variant="danger" size="lg">
               Logout
               </Button>
             </div>

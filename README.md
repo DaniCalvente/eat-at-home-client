@@ -1,70 +1,55 @@
-# Getting Started with Create React App
+What's it for?
+This is an application that connects food lovers with restaurants that want to expand their gastronomic offer beyond the doors of their premises; made with Node.js Framework using MongoDB (Atlas) as data store. In this app you can search for restaurants in your city and select them by type of cuisine to order food.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Deployment
+This project is live at: 🌍 https://reg-login-using-nodejs-mongodb.herokuapp.com/
 
-## Available Scripts
+Running the tests
+•Registration form:
+Allows the user to register their account by filling in their email, username, password and address.
 
-In the project directory, you can run:
+•Login form:
+If the user has registered in the application, they can log in by passing the credentials.
 
-### `npm start`
+•User profile:
+After the user has logged in, a simple profile with the user's username, nickname, password, and city
+displayed with a delete user button and profile picture
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+•Home:
+Depending on the type of user that logs in, we have two different views, one for the user and one for the owner of the restaurant. From the user view we can access the restaurants by city, see their menus, access our profile as well as edit and update it. From the Owner view we have access to the database of our restaurants and menus, we can create, update and delete them.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+•Comments:
+In that view of the Owner we can access all our menus. We can also update and delete our menus and create new ones.
 
-### `npm test`
+Database:
+Here we use MongoDB Atlas (Cloud) as the database. Here we have two collections created, named as:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+users
+restaurant
+menu
+A collection (comments) is populated with the user's credentials and restaurant profile.
 
-### `npm run build`
+A collection (session) is created that stores the users registered session.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+previous requirements
+Tools we need to run this application:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Node.js]
+[bcrypt]
+[connect-mongo]
+[cookie parser]
+[dotenv]
+[Fast]
+[express session]
+[hbs]
+[mongoose]
+[morgan]
+[serve-favicon]
+[nodemon]
+[MongoDB (Atlas)]
+installing
+install npm
+To run the application

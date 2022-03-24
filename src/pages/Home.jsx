@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import CarouselHome from "../components/CarouselHome";
 
 
+
 function Home() {
   const arrCity = [
     "Atenas",
@@ -42,6 +43,7 @@ function Home() {
       <h1>Eat at Home</h1>
 
       <div>
+        
         <form className="searchForm" onSubmit={handleSubmit}>
           <label htmlFor="city">Select your city </label>
           <select

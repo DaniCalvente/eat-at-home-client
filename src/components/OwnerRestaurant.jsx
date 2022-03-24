@@ -26,9 +26,9 @@ function OwnerRestaurant(props) {
   }
 
   return (
-    <div>
+    <div className="owner-restaurant-container">
       <h4> My Restaurants</h4>
-      <ListGroup as="ol" numbered>
+      <ListGroup className="myRestaurants">
         <ListGroup.Item as="li">
           {props.myRestaurants.map((eachRestaurant) => {
             return (

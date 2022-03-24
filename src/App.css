@@ -19,3 +19,24 @@
   align-items: center;
 }
 
+.myRestaurants {
+  padding-left: 150px;
+  width: 650px
+}
+
+.profile-restaurant {
+  padding-left: 200px;
+}
+
+.owner-restaurant-container{
+  margin-top: 30px;
+}
+
+.select-city {
+  padding: 10px 20px 20px 20px;
+}
+
+.select-city-button {
+  padding-left: 2px;
+}
+

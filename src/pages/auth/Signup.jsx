@@ -53,7 +53,7 @@ function Signup() {
           <Form.Group as={Col} controlId="formGridPassword">
             <Form.Label>Password</Form.Label>
             <Form.Control
-              type="password"
+              type="text"
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
@@ -92,6 +92,8 @@ function Signup() {
             <Form.Control onChange={(e) => setPostCode(e.target.value)} />
           </Form.Group>
         </Row>
+
+        {errorMessage && <p style={{background: "red"}}>{errorMessage}</p>}
 
         <Button variant="primary" type="submit">
           Submit

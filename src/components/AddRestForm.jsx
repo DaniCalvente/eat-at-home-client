@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {addRestaurantService} from '../services/restaurant.services'
+import { addRestaurantService } from "../services/restaurant.services";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function AddRestForm(props) {
   const [restName, setRestName] = useState("");
@@ -19,16 +22,15 @@ function AddRestForm(props) {
 
     try {
       const newRestaurant = { restName, foodType, city, address, postCode };
-      
-      const response = await addRestaurantService(newRestaurant)
-      console.log(newRestaurant);
-      props.getMyRestaurants()
-      setRestName("")
-      setFoodType("")
-      setCity("")
-      setAddress("")
-      setPostCode("")
 
+      const response = await addRestaurantService(newRestaurant);
+      console.log(newRestaurant);
+      props.getMyRestaurants();
+      setRestName("");
+      setFoodType("");
+      setCity("");
+      setAddress("");
+      setPostCode("");
     } catch (err) {
       navigate("/error");
     }
@@ -37,54 +39,93 @@ function AddRestForm(props) {
     <div>
       <form onSubmit={handleSubmit}>
         <p>Add Restaurant</p>
-        <label htmlFor="restName">Name:</label>
-        <input
-          type="text"
-          name="restName"
-          value={restName}
-          onChange={(e) => setRestName(e.target.value)}
-        />
+        <Form className = "profile-restaurant" >
+          <Form.Group
+            as={Row}
+            className="mb-3"
+            controlId="formPlaintextPassword"
+          >
+            <Form.Label column sm="2">
+              Name:
+            </Form.Label>
+            <Col sm="6">
+              <Form.Control
+                type="text"
+                placeholder="name"
+                value={restName}
+                onChange={(e) => setRestName(e.target.value)}
+              />
+            </Col>
+          </Form.Group>
+
+          <Form.Group
+            as={Row}
+            className="mb-3"
+            controlId="formPlaintextPassword"
+          >
+            <Form.Label column sm="2">
+            Food Type:
+            </Form.Label>
+            <Col sm="6">
+              <Form.Control type="text" placeholder="food type"
+              value={foodType}
+              onChange={(e) => setFoodType(e.target.value)} />
+            </Col>
+          </Form.Group>
+          <Form.Group
+            as={Row}
+            className="mb-3"
+            controlId="formPlaintextPassword"
+          >
+          <Form.Label column sm="2">
+          City:
+            </Form.Label>
+            <Col sm="6">
+              <Form.Control type="text" placeholder="city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)} />
+            </Col>
+          </Form.Group>
+
+
+          <Form.Group
+            as={Row}
+            className="mb-3"
+            controlId="formPlaintextPassword"
+          >
+          <Form.Label column sm="2">
+          Address:
+            </Form.Label>
+            <Col sm="6">
+              <Form.Control type="text" placeholder="address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)} />
+            </Col>
+          </Form.Group>
+
+
+          <Form.Group
+            as={Row}
+            className="mb-3"
+            controlId="formPlaintextPassword"
+          >
+          <Form.Label column sm="2">
+          Post Code:
+            </Form.Label>
+            <Col sm="6">
+              <Form.Control type="text" placeholder="post code"
+              value={postCode}
+              onChange={(e) => setPostCode(e.target.value)} />
+            </Col>
+          </Form.Group>
+
+
+        </Form>
+
 
         <br />
 
-        <label htmlFor="foodType">Food Type:</label>
-        <input
-          type="text"
-          name="foodType"
-          value={foodType}
-          onChange={(e) => setFoodType(e.target.value)}
-        />
-
-        <br />
-
-        <label htmlFor="city">City:</label>
-        <input
-          type="text"
-          name="city"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-        />
-        <br />
-
-        <label htmlFor="address">Address:</label>
-        <input
-          type="text"
-          name="addreess"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-        />
-
-        <br />
-        <label htmlFor="postCode">Post Code:</label>
-        <input
-          type="text"
-          name="postCode"
-          value={postCode}
-          onChange={(e) => setPostCode(e.target.value)}
-        />
-        <br />
-
-        {/* <label htmlFor="restImg">Codigo Postal:</label>
+        {/* <label htmlFor="restImg">Image:</label>
       <input
         type="text"
         name="restImg"
@@ -94,6 +135,7 @@ function AddRestForm(props) {
       <br />/> */}
 
         <button>Add</button>
+        <br />
       </form>
     </div>
   );
