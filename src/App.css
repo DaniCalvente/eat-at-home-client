@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+body {
+  background-image: source;
+}
 .navbar {
   padding-left: 50px;
   display: flex;
