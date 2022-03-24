@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams, useNavigate, Link } from "react-router-dom"
 import {getRestaurantMenuService} from "../services/restaurant.services"
 import {deleteItemMenuService} from "../services/menu.services"
+import AddMenuItemForm from "../components/AddMenuItemForm"
 
 
 function RestaurantMenu() {
@@ -48,6 +49,8 @@ function RestaurantMenu() {
 
   return (
     <div>
+
+    <AddMenuItemForm/>
 
     {/* <button onClick={handleNew}>New Dish</button> */}
     

@@ -22,6 +22,10 @@ service.interceptors.request.use((config) => {
     return service.get(`/menu/${id}`)
   }
 
+  // const addMenuItemService = (newMenuItem) => {
+  //   return service.post(``)
+  // }
+
   const editmenuItemService = (id, menuItem) => {
     return service.patch(`/menu/edit/${id}`, menuItem)
   }

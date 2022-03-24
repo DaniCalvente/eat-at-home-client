@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addRestaurantService } from "../services/restaurant.services";
 import Form from "react-bootstrap/Form";

@@ -12,13 +12,44 @@ import Signup from './pages/auth/Signup';
 import Owner from './pages/Owner';
 import RestaurantEdit from './pages/RestaurantEdit'
 import MenuEdit from './pages/MenuEdit'
-
+import {useState, useEffect} from "react"
+import {verifyService} from "./services/auth.services"
 
 function App() {
+
+  const [isLoggedIn, setIsLoggedIn] = useState(null)
+  const [user, setUser] = useState(null)
+  const [fetchingUser, setFetchingUser] = useState(true)
+
+  useEffect(() => {
+    getUserInfo()
+
+  }, [])
+  
+  const getUserInfo = async () => {
+
+    try {
+      const response = await verifyService()
+      // lo de abajo solo ocurre si el usuario fue verificado
+      setIsLoggedIn(true)
+      setUser(response.data)
+      setFetchingUser(false)
+    } catch(err) {
+      setIsLoggedIn(false)
+      setUser(null)
+      setFetchingUser(false)
+    }
+  }
+
+
+  if (fetchingUser) {
+    return <h3>...Loading</h3>
+  }
+
   return (
     <div className="App">
 
-    <Navbar/>
+    <Navbar isLoggedIn={isLoggedIn} getUserInfo={getUserInfo}/>  
 
     <Routes>
 
@@ -28,11 +59,11 @@ function App() {
     <Route path='/restaurant/owner' element={ <Owner/>} />
     <Route path='/restaurant/edit/:id' element={ <RestaurantEdit /> }/>
 
-
+    {/* <Route path='/restaurant/menu/edit/:id' element={ <MenuEdit /> }/> */}
     <Route path='/restaurant/menu/edit/:id' element={ <MenuEdit /> } />   
     
 
-    <Route path='/login' element={<Login />}/>
+    <Route path='/login' element={<Login  getUserInfo={getUserInfo}/>}/>
     <Route path='/signup' element={<Signup />}/>
 
     <Route path='/error' element={<Error />}/>

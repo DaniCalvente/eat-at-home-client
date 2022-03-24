@@ -29,7 +29,7 @@ function Login(props) {
       localStorage.setItem("authToken", authToken);
 
       // redireccionar a "/"
-      // props.setIsLoggedIn(true)
+      props.getUserInfo()
       navigate("/");
     } catch (err) {
       if (err.response && (err.response.status === 400 || err.response.status === 401)) {
