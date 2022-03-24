@@ -44,7 +44,8 @@ function Home(props) {
       <img width="500px" src={logo_EAT_Img} alt="delivery" />
 
       <div>
-        <form className="searchForm" onSubmit={handleSubmit}>
+        {  props.user?.role !== "owner" &&
+          <form className="searchForm" onSubmit={handleSubmit}>
           <Form.Select
             aria-label="Default select example"
             value={searchCityRestaurant}
@@ -57,8 +58,13 @@ function Home(props) {
           </Form.Select>
 
           <button>Enter</button>
-        </form>
+        </form> 
+        }
+       
+
       </div>
+
+
       <div className="carousel">
         <CarouselHome />
       </div>
