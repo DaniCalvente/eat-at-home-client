@@ -4,9 +4,14 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getMyRestaurantsService } from "../services/restaurant.services";
 
+
+
+
 function Owner() {
   
   const [myRestaurants, setMyRestaurants] = useState(null);
+  const [showForm, setShowForm] = useState(false);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,7 +30,16 @@ function Owner() {
   return (
     <div>
       <h3> OWNER PROFILE</h3>
-      <AddRestForm getMyRestaurants={getMyRestaurants}/>
+
+      <button onClick={() => setShowForm(!showForm)}>
+      
+      {showForm ? "Hide Add Form" : "Show Add Form"}
+    </button>
+
+    {showForm && <AddRestForm getMyRestaurants={getMyRestaurants}/>}
+
+
+      
       <OwnerRestaurant myRestaurants={myRestaurants}/>
     </div>
   );
