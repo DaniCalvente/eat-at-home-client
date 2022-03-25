@@ -12,7 +12,7 @@ function RestaurantMenu(props) {
   const [isOwner, setIsOwner] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [boughtFood, setBoughtFood] = useState([]);
-  const [quantity, setQuantity] = useState(0);
+  // const [quantity, setQuantity] = useState(0);
   const [fetching, setFetching] = useState(true);
 
   const { id } = useParams();
@@ -49,17 +49,20 @@ function RestaurantMenu(props) {
     }
   };
 
-  const handleChange = (event) => {
-    setQuantity(event.target.value);
-  };
+ 
 
-  const addToBoughtFood = (foodToBuy) => {
-    console.log("producto a comprar es:", foodToBuy);
-  };
+  
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event, menuItem) => {
     event.preventDefault();
-    addToBoughtFood();
+    console.log(event.target)
+    const quantityDOM = event.target.querySelector("input")
+    const quantity = quantityDOM.value
+    console.log(quantity)
+    console.log(menuItem)
+    const itemsPreOrder = {quantity: quantity, name: menuItem.name, price: menuItem.price}
+    setBoughtFood([...boughtFood, itemsPreOrder])
+    quantityDOM.value = 0; // para reiniciar el elem de DOM
   };
 
   //4. Sistema de loading
@@ -73,7 +76,7 @@ function RestaurantMenu(props) {
   }
 
   return (
-    <div>
+    <div className="restMenuView">
       {props.user?.role === "owner" && (
         <div className="containerFoodOrder">
           <button onClick={() => setShowForm(!showForm)}>
@@ -90,8 +93,17 @@ function RestaurantMenu(props) {
             <div className="eachDish">
               {/* <Link to={`/restaurant/${eachRestMenu._id}/menu`}><h3>{eachRestMenu.name}</h3></Link> */}
               <div className="eachRestMenu">
-                <span>{eachRestMenu.name}</span>
-                <span> {eachRestMenu.price} $</span>
+              <div className="namePriceMenu">
+              <div>
+                <h3>{eachRestMenu.name}</h3>
+              </div>
+                
+                <div className="priceMenu">
+                  <h3> {eachRestMenu.price} $</h3>
+                </div>
+                
+              </div>
+                
                 <p>{eachRestMenu.description}</p>
               </div>
 
@@ -116,12 +128,10 @@ function RestaurantMenu(props) {
 
               <div>
                 {props.user?.role !== "owner" && (
-                  <form onSubmit={() => handleSubmit(eachRestMenu)}>
+                  <form onSubmit={(e) => handleSubmit(e, eachRestMenu)}>
                     <input
                       type="number"
                       name="quantity"
-                      value={quantity}
-                      onChange={handleChange}
                     />
                     <button>Order</button>
                   </form>
@@ -132,7 +142,7 @@ function RestaurantMenu(props) {
         })}
       </div>
       <div>
-        <h4>Food Order</h4>
+        
       
 
       <FoodOrder boughtFood={boughtFood} />

@@ -38,7 +38,7 @@ function Owner(props) {
 
   return (
     <div>
-      <h3> {props.user.name}'s profile</h3>
+      <h3> {props.user?.name}'s profile</h3>
       <div className="containerHideShow">
         <button
           className="buttonHideShow"

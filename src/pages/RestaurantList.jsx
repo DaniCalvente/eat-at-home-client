@@ -4,7 +4,7 @@ import { getCityRestaurantsService } from "../services/restaurant.services";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import RingLoader from "react-spinners/RingLoader";
-// import restaurantImg from "../images/restaurant.jpeg"
+import restaurant from "../images/restaurant.jpeg"
 import Image from "react-bootstrap/Image";
 
 function RestaurantList() {
@@ -47,14 +47,14 @@ function RestaurantList() {
   }
 
   return (
-    <div className="restaurant-list">
+    <div >
       <h2>Restaurants in {`${city[0].toUpperCase() + city.slice(1)}`}</h2>
 
       {cityRestaurants.map((eachRestaurant) => {
         return (
-          <div>
+          <div className="restaurant-list">
             <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="../images/restaurant.jpeg" />
+            <Card.Img variant="top" src={restaurant} />
               
               <Card.Body>
                 <Card.Title>
