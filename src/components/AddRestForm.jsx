@@ -4,6 +4,7 @@ import { addRestaurantService } from "../services/restaurant.services";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 function AddRestForm(props) {
   const [restName, setRestName] = useState("");
@@ -133,8 +134,9 @@ function AddRestForm(props) {
         onChange={handleRestImg}     
 
       <br />/> */}
+      <Button variant="outline-dark" className="buttonHideShow">Add</Button>
 
-        <button>Add</button>
+
         <br />
       </form>
     </div>

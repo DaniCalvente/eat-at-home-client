@@ -95,7 +95,7 @@ function Signup() {
 
         {errorMessage && <p style={{ background: "red" }}>{errorMessage}</p>}
 
-        <Button className="buttonUpdate" variant="dark" type="submit">
+        <Button className="buttonUpdate" variant="outline-dark" type="submit">
           Submit
         </Button>
       </Form>

@@ -83,12 +83,16 @@ function RestaurantMenu(props) {
 
       {restMenu.map((eachRestMenu) => {
         return (
+
           <div className="eachDish">
             {/* <Link to={`/restaurant/${eachRestMenu._id}/menu`}><h3>{eachRestMenu.name}</h3></Link> */}
+            <div>
             <h3>{eachRestMenu.name}</h3>
             <h3>{eachRestMenu.price} $</h3>
             <p>{eachRestMenu.description}</p>
-            
+            </div>
+
+            <div>
             {isOwner && (
               <button onClick={() => handleEdit(eachRestMenu._id)}>Edit</button>
             )}
@@ -97,7 +101,9 @@ function RestaurantMenu(props) {
                 Delete
               </button>
             )}
-            
+            </div>
+
+            <div>
             {props.user?.role !== "owner" &&
              <form onSubmit={() => handleSubmit(eachRestMenu)} >
               <input 
@@ -108,6 +114,7 @@ function RestaurantMenu(props) {
             <button>Order</button>
             </form> 
             }
+            </div>
             
             
 

@@ -126,7 +126,7 @@ function RestaurantEdit() {
         </Row>{" "}
         <div>
           <Button
-          className="button" variant="dark" type="submit">
+          className="button" variant="outline-dark" type="submit">
             Update Restaurant
           </Button>
         </div>
@@ -136,7 +136,7 @@ function RestaurantEdit() {
           <Button
             className="buttonDelete"
             onClick={handleDelete}
-            variant="dark"
+            variant="outline-dark"
             type="submit"
           >
             Delete Restaurant

@@ -94,7 +94,7 @@ function AddMenuItemForm() {
           />
         </Form.Group>
 
-        <Button className="buttonUpdate" variant="dark" type="submit">
+        <Button className="buttonUpdate" variant="outline-dark" type="submit">
           Submit
         </Button>
       </Form>

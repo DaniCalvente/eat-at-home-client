@@ -115,6 +115,11 @@ h3 {
   margin-left: 400px;
 }
 
+.restaurant-list {
+  width: 800px;
+
+}
+
 .editMenu {
   width: 800px;
   margin-left: 400px;
@@ -138,4 +143,9 @@ h3 {
   background-color: black;
   color: green;
   margin-left: 5px;
+}
+
+.containerHideShow {
+  border-radius: 10px;
+  background-color: grey;
 }

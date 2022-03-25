@@ -73,7 +73,7 @@ function Login(props) {
         {errorMessage && <p style={{background: "red"}}>{errorMessage}</p>}
 
         {/* <button style={{...btnStyles, ...switchBtnTheme()}}>Submit</button> */}
-        <Button className="buttonUpdate" variant="dark" type="submit">
+        <Button className="buttonUpdate" variant="outline-dark" type="submit">
           Submit
         </Button>
       </Form>

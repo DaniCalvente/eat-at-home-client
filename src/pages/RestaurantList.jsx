@@ -35,7 +35,7 @@ function RestaurantList() {
   }
 
   return (
-    <div>
+    <div className="restaurant-list">
       <h2>Restaurants in {`${city[0].toUpperCase() + city.slice(1)}`}</h2>
 
       {cityRestaurants.map((eachRestaurant) => {
@@ -54,7 +54,7 @@ function RestaurantList() {
                 <Card.Text>
                   <h4>{eachRestaurant.foodType}</h4>
                 </Card.Text>
-                <Button variant="dark">Add to favorites</Button>
+                <Button variant="outline-dark">Add to favorites</Button>
               </Card.Body>
             </Card>
           </div>

@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { getMenuItemInfoService, editmenuItemService } from "../services/menu.services.js"
+import {
+  getMenuItemInfoService,
+  editmenuItemService,
+} from "../services/menu.services.js";
 
 function MenuEdit() {
-  
   const { id } = useParams();
   console.log(id);
 
@@ -13,25 +15,24 @@ function MenuEdit() {
   const [dishType, setDishType] = useState("");
   const [allergens, setAllergens] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
-    getMenuItemInfo()
-  }, [])
+    getMenuItemInfo();
+  }, []);
 
   const getMenuItemInfo = async () => {
-    try{
-      const response = await getMenuItemInfoService(id) 
+    try {
+      const response = await getMenuItemInfoService(id);
       setName(response.data.name);
       setDescription(response.data.description);
       setPrice(response.data.price);
       setDishType(response.data.dishType);
       setAllergens(response.data.allergens);
-
-    }catch(err) {
-      navigate("/error")
+    } catch (err) {
+      navigate("/error");
     }
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,12 +44,11 @@ function MenuEdit() {
         dishType,
         allergens,
       });
-      navigate(`/restaurant/owner`);  
+      navigate(`/restaurant/owner`);
     } catch (err) {
       navigate("/error");
     }
-  }
-
+  };
 
   return (
     <div>

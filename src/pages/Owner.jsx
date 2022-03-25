@@ -26,7 +26,7 @@ function Owner() {
   return (
     <div>
       <h3> OWNER PROFILE</h3>
-      <div className="buttonHideShow">
+      <div className="containerHideShow">
         <button
           className="buttonHideShow"
           onClick={() => setShowForm(!showForm)}
