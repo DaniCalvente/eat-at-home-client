@@ -14,6 +14,7 @@ function MenuEdit() {
   const [price, setPrice] = useState("");
   const [dishType, setDishType] = useState("");
   const [allergens, setAllergens] = useState("");
+  const [fetching, setFetching] = useState(true);
 
   const navigate = useNavigate();
 

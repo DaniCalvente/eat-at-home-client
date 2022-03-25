@@ -3,12 +3,15 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { getCityRestaurantsService } from "../services/restaurant.services";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import restaurantImg from "../images/restaurant.jpeg"
+import RingLoader from "react-spinners/RingLoader";
+// import restaurantImg from "../images/restaurant.jpeg"
 import Image from "react-bootstrap/Image";
 
 function RestaurantList() {
   //1.Crear estado que controle la informacion
   const [cityRestaurants, setCityRestaurants] = useState(null);
+  const [fetching, setFetching] = useState(true);
+
   const navigate = useNavigate();
   const { city } = useParams();
 
@@ -23,10 +26,19 @@ function RestaurantList() {
       const response = await getCityRestaurantsService(city);
       // console.log(response)
       setCityRestaurants(response.data);
+      setFetching(false);
     } catch (err) {
       navigate("/error");
     }
   };
+
+  if (fetching) {
+    return (
+      <div>
+        <RingLoader />
+      </div>
+    );
+  }
 
   //4. Sistema de loading
 
@@ -42,7 +54,7 @@ function RestaurantList() {
         return (
           <div>
             <Card style={{ width: "18rem" }}>
-            <Card.Img variant="top" src="{restaurantImg}" />
+            <Card.Img variant="top" src="../images/restaurant.jpeg" />
               
               <Card.Body>
                 <Card.Title>

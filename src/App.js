@@ -14,12 +14,14 @@ import RestaurantEdit from './pages/RestaurantEdit'
 import MenuEdit from './pages/MenuEdit'
 import {useState, useEffect} from "react"
 import {verifyService} from "./services/auth.services"
+import RingLoader from "react-spinners/RingLoader";
 
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(null)
   const [user, setUser] = useState(null)
   const [fetchingUser, setFetchingUser] = useState(true)
+  
 
   useEffect(() => {
     getUserInfo()
@@ -43,7 +45,11 @@ function App() {
 
 
   if (fetchingUser) {
-    return <h3>...Loading</h3>
+    return (
+      <div>
+        <RingLoader />
+      </div>
+    );
   }
 
   return (

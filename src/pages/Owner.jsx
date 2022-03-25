@@ -3,10 +3,13 @@ import OwnerRestaurant from "../components/OwnerRestaurant";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getMyRestaurantsService } from "../services/restaurant.services";
+import RingLoader from "react-spinners/RingLoader";
+
 
 function Owner() {
   const [myRestaurants, setMyRestaurants] = useState(null);
   const [showForm, setShowForm] = useState(false);
+  const [fetching, setFetching] = useState(true);
 
   const navigate = useNavigate();
 
@@ -19,10 +22,20 @@ function Owner() {
       const response = await getMyRestaurantsService();
       console.log(response);
       setMyRestaurants(response.data);
+      setFetching(false);
     } catch (err) {
       navigate("/error");
     }
   };
+
+  if (fetching) {
+    return (
+      <div>
+        <RingLoader />
+      </div>
+    );
+  }
+
   return (
     <div>
       <h3> OWNER PROFILE</h3>
