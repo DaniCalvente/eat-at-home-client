@@ -3,13 +3,18 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 import { getRestaurantMenuService } from "../services/restaurant.services";
 import { deleteItemMenuService } from "../services/menu.services";
 import AddMenuItemForm from "../components/AddMenuItemForm";
+import FoodOrder from "../components/FoodOrder";
 
 function RestaurantMenu(props) {
   const [restMenu, setRestMenu] = useState(null);
   const [isOwner, setIsOwner] = useState(null);
-  const navigate = useNavigate();
-  const { id } = useParams();
   const [showForm, setShowForm] = useState(false);
+  const [boughtFood, setBoughtFood] = useState([])
+  const [quantity, setQuantity] = useState(0)
+
+  const { id } = useParams();
+  
+  const navigate = useNavigate();
 
   useEffect(() => {
     getRestaurantMenu();
@@ -40,6 +45,22 @@ function RestaurantMenu(props) {
     }
   };
 
+  const handleChange = (event) => {
+    setQuantity(event.target.value)
+  }
+
+  const addToBoughtFood = (foodToBuy) => {
+    console.log("producto a comprar es:", foodToBuy);
+  }
+
+  const handleSubmit = (event) => {
+    
+    event.preventDefault()
+    addToBoughtFood()
+  }
+
+
+
   //4. Sistema de loading
 
   if (!restMenu) {
@@ -65,7 +86,9 @@ function RestaurantMenu(props) {
           <div className="eachDish">
             {/* <Link to={`/restaurant/${eachRestMenu._id}/menu`}><h3>{eachRestMenu.name}</h3></Link> */}
             <h3>{eachRestMenu.name}</h3>
-            <p>{eachRestMenu.price} $</p>
+            <h3>{eachRestMenu.price} $</h3>
+            <p>{eachRestMenu.description}</p>
+            
             {isOwner && (
               <button onClick={() => handleEdit(eachRestMenu._id)}>Edit</button>
             )}
@@ -74,9 +97,25 @@ function RestaurantMenu(props) {
                 Delete
               </button>
             )}
+            
+            {props.user?.role !== "owner" &&
+             <form onSubmit={() => handleSubmit(eachRestMenu)} >
+              <input 
+              type="number" 
+              name="quantity" 
+              value={quantity} 
+              onChange = {handleChange}/>
+            <button>Order</button>
+            </form> 
+            }
+            
+            
+
           </div>
         );
       })}
+
+      <FoodOrder boughtFood={boughtFood}/>
     </div>
   );
 }

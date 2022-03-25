@@ -51,7 +51,9 @@ function App() {
 
     <Navbar isLoggedIn={isLoggedIn} getUserInfo={getUserInfo} user={user}/>  
 
-    <Routes>
+
+    <div className='background'>
+      <Routes>
 
     <Route path='/' element={ <Home user={user}/>} />
     <Route path='/restaurant/:city' element={ <RestaurantList />} />
@@ -71,6 +73,8 @@ function App() {
     
 
     </Routes>
+    </div>
+    
   
     </div>
   );
