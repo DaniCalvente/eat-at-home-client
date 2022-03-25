@@ -5,6 +5,10 @@ import {
   editRestaurantService,
   deleteRestaurantService,
 } from "../services/restaurant.services.js";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 function RestaurantEdit() {
   const { id } = useParams();
@@ -36,8 +40,6 @@ function RestaurantEdit() {
     }
   };
 
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -48,68 +50,25 @@ function RestaurantEdit() {
         address,
         postCode,
       });
-      navigate(`/restaurant/owner`);  
+      navigate(`/restaurant/owner`);
     } catch (err) {
       navigate("/error");
     }
-  }
+  };
 
   const handleDelete = async () => {
-    try{
-     await deleteRestaurantService(id)
-      navigate(`/restaurant/owner`); 
-    } catch(err) {
-      navigate("/error")
+    try {
+      await deleteRestaurantService(id);
+      navigate(`/restaurant/owner`);
+    } catch (err) {
+      navigate("/error");
     }
-  }
+  };
 
-    return (
-      <div>
-        <h3>Edit Restaurant</h3>
-
-        <form onSubmit={handleSubmit}>
-          
-          <label htmlFor="restName">Name:</label>
-          <input
-            type="text"
-            name="restName"
-            value={restName}
-            onChange={(e) => setRestName(e.target.value)}
-          />
-          <br />
-          <label htmlFor="foodType">Food Type:</label>
-          <input
-            type="text"
-            name="foodType"
-            value={foodType}
-            onChange={(e) => setFoodType(e.target.value)}
-          />
-          <br />
-          <label htmlFor="city">City:</label>
-          <input
-            type="text"
-            name="city"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          />
-          <br />
-          <label htmlFor="address">Address:</label>
-          <input
-            type="text"
-            name="address"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-          />
-          <br />
-          <label htmlFor="postCode">Post Code:</label>
-          <input
-            type="text"
-            name="postCode"
-            value={postCode}
-            onChange={(e) => setPostCode(e.target.value)}
-          />
-          <br />
-          {/* <label htmlFor="restImg">Codigo Postal:</label>
+  return (
+    <div className="editRestaurant">
+      <h3>Edit Restaurant</h3>
+      {/* <label htmlFor="restImg">Codigo Postal:</label>
       <input
         type="text"
         name="restImg"
@@ -117,15 +76,75 @@ function RestaurantEdit() {
         onChange={handleRestImg}     
 
       <br />/> */}
-          <button>Update Restaurant</button>
-        </form>
+      <Form onSubmit={handleSubmit} className="formSign">
+        <Row className="mb-3">
+          <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Label>Name</Form.Label>
+            <Form.Control
+              placeholder="name"
+              type="text"
+              value={restName}
+              onChange={(e) => setRestName(e.target.value)}
+            />
+          </Form.Group>
 
-        <button onClick={handleDelete}>Delete Restaurant</button>
+          <Form.Group as={Col} controlId="formGridPassword">
+            <Form.Label>Food Type</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="food type"
+              value={foodType}
+              onChange={(e) => setFoodType(e.target.value)}
+            />
+          </Form.Group>
+        </Row>
+        <Form.Group className="mb-3" controlId="formGridAddress2">
+          <Form.Label>City</Form.Label>
+          <Form.Control
+            placeholder="Enter your name"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          />
+        </Form.Group>
+        <Row className="mb-3">
+          <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Label>Address</Form.Label>
+            <Form.Control
+              placeholder="Enter your address"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            />
+          </Form.Group>
 
-        
+          <Form.Group as={Col} controlId="formGridZip">
+            <Form.Label>Post Code</Form.Label>
+            <Form.Control
+              value={postCode}
+              onChange={(e) => setPostCode(e.target.value)}
+            />
+          </Form.Group>
+        </Row>{" "}
+        <div>
+          <Button
+          className="button" variant="dark" type="submit">
+            Update Restaurant
+          </Button>
+        </div>
+      </Form>{" "}
+      <div>
+        <span>
+          <Button
+            className="buttonDelete"
+            onClick={handleDelete}
+            variant="dark"
+            type="submit"
+          >
+            Delete Restaurant
+          </Button>
+        </span>
       </div>
-    );
-  
+    </div>
+  );
 }
 
 export default RestaurantEdit;

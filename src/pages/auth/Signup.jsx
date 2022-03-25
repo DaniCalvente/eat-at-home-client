@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { signupService } from "../../services/auth.services";
-import Form from "react-bootstrap/Form"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
-import Button from "react-bootstrap/Button"
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -36,7 +36,7 @@ function Signup() {
   };
 
   return (
-    <div>
+    <div className="owner-restaurant-container">
       <h3>Create User</h3>
 
       <Form onSubmit={handleSubmit} className="formSign">
@@ -93,9 +93,9 @@ function Signup() {
           </Form.Group>
         </Row>
 
-        {errorMessage && <p style={{background: "red"}}>{errorMessage}</p>}
+        {errorMessage && <p style={{ background: "red" }}>{errorMessage}</p>}
 
-        <Button variant="primary" type="submit">
+        <Button className="buttonUpdate" variant="dark" type="submit">
           Submit
         </Button>
       </Form>

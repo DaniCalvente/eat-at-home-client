@@ -43,27 +43,24 @@ function Home(props) {
     <div className="logoHome">
       <img width="500px" src={logo_EAT_Img} alt="delivery" />
 
-      <div>
-        {  props.user?.role !== "owner" &&
+      <div className="owner-restaurant-container">
+        {props.user?.role !== "owner" && (
           <form className="searchForm" onSubmit={handleSubmit}>
-          <Form.Select
-            aria-label="Default select example"
-            value={searchCityRestaurant}
-            onChange={handleSelect}
-          >
-            <option>Select your city</option>
-            {arrCity.map((eachCity) => {
-              return <option value={eachCity}>{eachCity}</option>;
-            })}
-          </Form.Select>
+            <Form.Select
+              aria-label="Default select example"
+              value={searchCityRestaurant}
+              onChange={handleSelect}
+            >
+              <option>Select your city</option>
+              {arrCity.map((eachCity) => {
+                return <option value={eachCity}>{eachCity}</option>;
+              })}
+            </Form.Select>
 
-          <button>Enter</button>
-        </form> 
-        }
-       
-
+            <button className="buttonHideShow">Enter</button>
+          </form>
+        )}
       </div>
-
 
       <div className="carousel">
         <CarouselHome />

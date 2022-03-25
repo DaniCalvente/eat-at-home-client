@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getMyRestaurantsService } from "../services/restaurant.services";
 import ListGroup from "react-bootstrap/ListGroup";
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 function OwnerRestaurant(props) {
   // const [myRestaurants, setMyRestaurants] = useState(null);
@@ -32,15 +34,24 @@ function OwnerRestaurant(props) {
         <ListGroup.Item as="li">
           {props.myRestaurants.map((eachRestaurant) => {
             return (
-              <div>
-                <span>{eachRestaurant.restName}</span>
-
-                <Link to={`/restaurant/edit/${eachRestaurant._id}`}>
-                  <button>Edit Restaurant</button>
-                </Link>
-                <Link to={`/restaurant/menu/${eachRestaurant._id}`}>
-                  <button>Edit Menu</button>
-                </Link>
+              <div className="owner-my-restaurant">
+                <div className="owner-restaurant-name">
+                  <span>{eachRestaurant.restName}</span>
+                </div>
+                <div className="owner-restaurant-buttons">
+                  <ButtonGroup aria-label="Basic example">
+                    <Link to={`/restaurant/edit/${eachRestaurant._id}`}>
+                      <Button variant="secondary" className="buttonOwner">
+                        Edit Restaurant
+                      </Button>
+                    </Link>
+                    <Link to={`/restaurant/menu/${eachRestaurant._id}`}>
+                      <Button variant="secondary" className="buttonOwner">
+                        Edit Menu
+                      </Button>
+                    </Link>
+                  </ButtonGroup>
+                </div>
               </div>
             );
           })}
