@@ -64,7 +64,7 @@ function App() {
     <Route path='/' element={ <Home user={user}/>} />
     <Route path='/restaurant/:city' element={ <RestaurantList />} />
     <Route path='/restaurant/menu/:id' element={ <RestaurantMenu user={user}/>} />
-    <Route path='/restaurant/owner' element={ <Owner/>} />
+    <Route path='/restaurant/owner' element={ <Owner user={user}/>} />
     <Route path='/restaurant/edit/:id' element={ <RestaurantEdit /> }/>
 
     {/* <Route path='/restaurant/menu/edit/:id' element={ <MenuEdit /> }/> */}

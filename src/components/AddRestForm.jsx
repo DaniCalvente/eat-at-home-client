@@ -7,6 +7,7 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
 function AddRestForm(props) {
+
   const [restName, setRestName] = useState("");
   const [foodType, setFoodType] = useState("");
   const [city, setCity] = useState("");
@@ -134,7 +135,8 @@ function AddRestForm(props) {
         onChange={handleRestImg}     
 
       <br />/> */}
-      <Button variant="outline-dark" className="buttonHideShow">Add</Button>
+      <Button variant="outline-dark" className="buttonHideShow" type="submit">Add</Button>
+
 
 
         <br />

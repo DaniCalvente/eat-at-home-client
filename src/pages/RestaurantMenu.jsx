@@ -8,6 +8,7 @@ import RingLoader from "react-spinners/RingLoader";
 
 
 function RestaurantMenu(props) {
+
   const [restMenu, setRestMenu] = useState(null);
   const [isOwner, setIsOwner] = useState(null);
   const [showForm, setShowForm] = useState(false);
@@ -85,7 +86,7 @@ function RestaurantMenu(props) {
           {showForm ? "Hide Add Form" : "Show Add Form"}
         </button>
 
-        {showForm && <AddMenuItemForm />}
+        {showForm && <AddMenuItemForm getRestaurantMenu={getRestaurantMenu}/>}
       </div>
        }
 

@@ -6,7 +6,7 @@ import { getMyRestaurantsService } from "../services/restaurant.services";
 import RingLoader from "react-spinners/RingLoader";
 
 
-function Owner() {
+function Owner(props) {
   const [myRestaurants, setMyRestaurants] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [fetching, setFetching] = useState(true);
@@ -38,7 +38,7 @@ function Owner() {
 
   return (
     <div>
-      <h3> OWNER PROFILE</h3>
+      <h3> {props.user.name}'s profile</h3>
       <div className="containerHideShow">
         <button
           className="buttonHideShow"

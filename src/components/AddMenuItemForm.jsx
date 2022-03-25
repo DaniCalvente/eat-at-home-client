@@ -6,7 +6,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-function AddMenuItemForm() {
+
+function AddMenuItemForm(props) {
   const { id } = useParams();
 
   const [name, setName] = useState("");
@@ -26,6 +27,7 @@ function AddMenuItemForm() {
 
       const response = await addMenuItemService(id, newMenuItem);
       console.log(response);
+      props.getRestaurantMenu();
       setName("");
       setDescription("");
       setPrice("");

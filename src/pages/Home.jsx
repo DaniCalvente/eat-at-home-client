@@ -43,6 +43,8 @@ function Home(props) {
     <div className="logoHome">
       <img width="500px" src={logo_EAT_Img} alt="delivery" />
 
+      <h3>Hi {props.user.name}!!. What would you like to eat today? </h3>
+
       <div className="owner-restaurant-container">
         {props.user?.role !== "owner" && (
           <form className="searchForm" onSubmit={handleSubmit}>
