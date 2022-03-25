@@ -1,9 +1,13 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import { addMenuItemService } from "../services/restaurant.services";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
 
 function AddMenuItemForm() {
- const {id} = useParams()
+  const { id } = useParams();
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -11,7 +15,7 @@ function AddMenuItemForm() {
   const [dishType, setDishType] = useState("");
   const [allergens, setAllergens] = useState("");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +24,7 @@ function AddMenuItemForm() {
     try {
       const newMenuItem = { name, description, price, dishType, allergens };
 
-      const response = await addMenuItemService( id, newMenuItem)
+      const response = await addMenuItemService(id, newMenuItem);
       console.log(response);
       setName("");
       setDescription("");
@@ -32,61 +36,70 @@ function AddMenuItemForm() {
     }
   };
 
-
   return (
-    <div>
-    
-    <h3>Add New Dish</h3>
+    <div className="editMenu">
+      <h3>Add New Dish</h3>
 
-    <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className="formSign">
+        <Row className="mb-3">
+          <Form.Group as={Col} controlId="formGridEmail">
+            <Form.Label className="formLabelSize">Name</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </Form.Group>
 
-    <label htmlFor="name">Name: </label>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-        <br />
-        <label htmlFor="description">Description: </label>
-        <input
-          type="text"
-          name="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
-        <br />
-        <label htmlFor="price">Price: </label>
-        <input
-          type="text"
-          name="price"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-        />
-        <br />
-        <label htmlFor="dishType">Dish Type: </label>
-        <input
-          type="text"
-          name="dishType"
-          value={dishType}
-          onChange={(e) => setDishType(e.target.value)}
-        />
-        <br />
-        <label htmlFor="allergens">Allergens: </label>
-        <input
-          type="text"
-          name="allergens"
-          value={allergens}
-          onChange={(e) => setAllergens(e.target.value)}
-        />
+          <Form.Group as={Col} controlId="formGridAddress2">
+            <Form.Label className="formLabelSize">Price</Form.Label>
+            <Form.Control
+              type="number"
+              name="price"
+              placeholder="food price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
+          </Form.Group>
+        </Row>
 
-        <button>Submit</button>
+        <Form.Group className="mb-3" controlId="formGridPassword">
+          <Form.Label className="formLabelSize">Description</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+        </Form.Group>
 
+        <Form.Group className="mb-3" controlId="formGridPassword">
+          <Form.Label className="formLabelSize">Dish Type</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="dish type"
+            value={dishType}
+            onChange={(e) => setDishType(e.target.value)}
+          />
+        </Form.Group>
 
-    </form>
-    
+        <Form.Group className="mb-3" controlId="formGridAddress1">
+          <Form.Label className="formLabelSize">Allergens</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="allergens"
+            value={allergens}
+            onChange={(e) => setAllergens(e.target.value)}
+          />
+        </Form.Group>
+
+        <Button className="buttonUpdate" variant="dark" type="submit">
+          Submit
+        </Button>
+      </Form>
     </div>
-  )
+  );
 }
 
-export default AddMenuItemForm
+export default AddMenuItemForm;

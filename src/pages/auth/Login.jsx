@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginService } from "../../services/auth.services";
 import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 // import { ThemeContext } from "../../context/theme.context";
 
@@ -46,7 +47,7 @@ function Login(props) {
   // }
 
   return (
-    <div>
+    <div className="owner-restaurant-container">
       <h3>Login</h3>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="formGroupEmail">
@@ -72,7 +73,9 @@ function Login(props) {
         {errorMessage && <p style={{background: "red"}}>{errorMessage}</p>}
 
         {/* <button style={{...btnStyles, ...switchBtnTheme()}}>Submit</button> */}
-        <button>Submit</button>
+        <Button className="buttonUpdate" variant="dark" type="submit">
+          Submit
+        </Button>
       </Form>
     </div>
   );

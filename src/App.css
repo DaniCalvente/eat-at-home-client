@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+<<<<<<< HEAD
 .background {
   /* background-image: url("./images/bgFood.jpeg");
   background-size: cover;
@@ -9,6 +10,19 @@
   overflow: hidden; */
 }
 
+=======
+bgImage {
+  background-image: url(./images/bgFood.jpeg);
+}
+
+h3 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  font-weight: bold;
+  color: lightdark
+}
+
+>>>>>>> dea9c460925bc0376cbedf0c02dd2ef3e69861cc
 .navbar {
   padding-left: 50px;
   display: flex;
@@ -60,3 +74,68 @@
   font-size: 80px;
 }
 
+.buttonOwner {
+  margin: 5px;
+}
+
+.owner-my-restaurant {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.owner-restaurant-name {
+  padding-top: 5px;
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
+  color: gray;
+}
+
+.owner-restaurant-buttons {
+  display: flex;
+  justify-items: flex-end;
+
+}
+
+.button-container {
+  width: 80px;
+  height: 40px;
+
+}
+
+.owner-restaurant-container {
+  width: 800px;
+  margin-left: 400px;
+
+}
+
+.editRestaurant {
+  width: 800px;
+  margin-left: 400px;
+}
+
+.editMenu {
+  width: 800px;
+  margin-left: 400px;
+
+}
+.buttonDelete {
+  color: red;
+}
+
+.buttonUpdate {
+  color: green
+}
+
+.formLabelSize {
+  font-size: large;
+  font-weight: bold;
+}
+
+.buttonHideShow {
+  border-radius: 10px;
+  background-color: black;
+  color: green;
+  margin-left: 5px;
+}
