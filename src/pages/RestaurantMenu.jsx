@@ -4,6 +4,8 @@ import { getRestaurantMenuService } from "../services/restaurant.services";
 import { deleteItemMenuService } from "../services/menu.services";
 import AddMenuItemForm from "../components/AddMenuItemForm";
 import FoodOrder from "../components/FoodOrder";
+import RingLoader from "react-spinners/RingLoader";
+
 
 function RestaurantMenu(props) {
   const [restMenu, setRestMenu] = useState(null);
@@ -11,6 +13,7 @@ function RestaurantMenu(props) {
   const [showForm, setShowForm] = useState(false);
   const [boughtFood, setBoughtFood] = useState([])
   const [quantity, setQuantity] = useState(0)
+  const [fetching, setFetching] = useState(true);
 
   const { id } = useParams();
   
@@ -27,6 +30,7 @@ function RestaurantMenu(props) {
       setRestMenu(response.data.menuItems);
       console.log(response.data.isOwner); //! este booleano, lo vamos a guardar en un estado, y luego ese estado lo utilizaremos para habilitar determinadas funciones
       setIsOwner(response.data.isOwner);
+      setFetching(false);
     } catch (err) {
       navigate("/error");
     }
@@ -63,8 +67,12 @@ function RestaurantMenu(props) {
 
   //4. Sistema de loading
 
-  if (!restMenu) {
-    return <h3>...Loading</h3>;
+  if (fetching) {
+    return (
+      <div>
+        <RingLoader />
+      </div>
+    );
   }
 
   return (

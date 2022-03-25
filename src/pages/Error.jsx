@@ -2,7 +2,11 @@
 
 function Error() {
   return (
-    <div>Error</div>
+    <div>
+    
+    <h4>Something went wrong. We are really sorry!</h4>
+    
+    </div>
   )
 }
 

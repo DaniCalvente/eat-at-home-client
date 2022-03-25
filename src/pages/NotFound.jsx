@@ -2,7 +2,11 @@
 
 function NotFound() {
   return (
-    <div>NotFound</div>
+    <div>
+    
+    <h4>Page not Found. We are really sorry!</h4>
+
+    </div>
   )
 }
 

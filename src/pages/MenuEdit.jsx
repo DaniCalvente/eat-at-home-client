@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getMenuItemInfoService, editmenuItemService } from "../services/menu.services.js"
+import RingLoader from "react-spinners/RingLoader";
+
 
 function MenuEdit() {
   
@@ -12,6 +14,7 @@ function MenuEdit() {
   const [price, setPrice] = useState("");
   const [dishType, setDishType] = useState("");
   const [allergens, setAllergens] = useState("");
+  const [fetching, setFetching] = useState(true);
 
   const navigate = useNavigate()
 
@@ -27,6 +30,7 @@ function MenuEdit() {
       setPrice(response.data.price);
       setDishType(response.data.dishType);
       setAllergens(response.data.allergens);
+      setFetching(false);
 
     }catch(err) {
       navigate("/error")
@@ -47,6 +51,14 @@ function MenuEdit() {
     } catch (err) {
       navigate("/error");
     }
+  }
+
+  if (fetching) {
+    return (
+      <div>
+        <RingLoader />
+      </div>
+    );
   }
 
 
