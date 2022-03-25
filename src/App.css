@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-<<<<<<< HEAD
 .background {
   /* background-image: url("./images/bgFood.jpeg");
   background-size: cover;
@@ -10,19 +9,6 @@
   overflow: hidden; */
 }
 
-=======
-bgImage {
-  background-image: url(./images/bgFood.jpeg);
-}
-
-h3 {
-  margin-top: 50px;
-  margin-bottom: 50px;
-  font-weight: bold;
-  color: lightdark
-}
-
->>>>>>> dea9c460925bc0376cbedf0c02dd2ef3e69861cc
 .navbar {
   padding-left: 50px;
   display: flex;
@@ -30,14 +16,24 @@ h3 {
 }
 
 .eachDish {
-  padding-left: 50px;
+  padding-left: 150px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
+
 
 .formSign {
   width: 800px;
   align-items: center;
+}
+
+.containerFoodOrder {
+  margin: 20px 20px 50px;
+}
+
+.eachRestMenu {
+  font-size: 20px;
 }
 
 .myRestaurants {
@@ -144,6 +140,16 @@ h3 {
   color: green;
   margin-left: 5px;
 }
+
+.buttonFoodOrder {
+  border: none;
+  width: 120px;
+  height: 30px;
+  margin: 5px;
+  background-color: lightsteelblue;
+  border-radius: 10px;
+}
+
 
 .containerHideShow {
   border-radius: 10px;
