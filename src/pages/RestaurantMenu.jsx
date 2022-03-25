@@ -6,18 +6,17 @@ import AddMenuItemForm from "../components/AddMenuItemForm";
 import FoodOrder from "../components/FoodOrder";
 import RingLoader from "react-spinners/RingLoader";
 
-
 function RestaurantMenu(props) {
 
   const [restMenu, setRestMenu] = useState(null);
   const [isOwner, setIsOwner] = useState(null);
   const [showForm, setShowForm] = useState(false);
-  const [boughtFood, setBoughtFood] = useState([])
-  const [quantity, setQuantity] = useState(0)
+  const [boughtFood, setBoughtFood] = useState([]);
+  const [quantity, setQuantity] = useState(0);
   const [fetching, setFetching] = useState(true);
 
   const { id } = useParams();
-  
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -51,20 +50,17 @@ function RestaurantMenu(props) {
   };
 
   const handleChange = (event) => {
-    setQuantity(event.target.value)
-  }
+    setQuantity(event.target.value);
+  };
 
   const addToBoughtFood = (foodToBuy) => {
     console.log("producto a comprar es:", foodToBuy);
-  }
+  };
 
   const handleSubmit = (event) => {
-    
-    event.preventDefault()
-    addToBoughtFood()
-  }
-
-
+    event.preventDefault();
+    addToBoughtFood();
+  };
 
   //4. Sistema de loading
 
@@ -78,60 +74,69 @@ function RestaurantMenu(props) {
 
   return (
     <div>
-      
-      { props.user?.role === "owner" &&
-        <div>
-     
-        <button onClick={() => setShowForm(!showForm)}>
-          {showForm ? "Hide Add Form" : "Show Add Form"}
-        </button>
+      {props.user?.role === "owner" && (
+        <div className="containerFoodOrder">
+          <button onClick={() => setShowForm(!showForm)}>
+            {showForm ? "Hide Add Form" : "Show Add Form"}
+          </button>
 
         {showForm && <AddMenuItemForm getRestaurantMenu={getRestaurantMenu}/>}
+          {showForm && <AddMenuItemForm />}
+        </div>
+      )}
+      <div className="containerFoodOrder2">
+        {restMenu.map((eachRestMenu) => {
+          return (
+            <div className="eachDish">
+              {/* <Link to={`/restaurant/${eachRestMenu._id}/menu`}><h3>{eachRestMenu.name}</h3></Link> */}
+              <div className="eachRestMenu">
+                <span>{eachRestMenu.name}</span>
+                <span> {eachRestMenu.price} $</span>
+                <p>{eachRestMenu.description}</p>
+              </div>
+
+              <div>
+                {isOwner && (
+                  <button
+                    className="buttonFoodOrder"
+                    onClick={() => handleEdit(eachRestMenu._id)}
+                  >
+                    Edit
+                  </button>
+                )}
+                {isOwner && (
+                  <button
+                    className="buttonFoodOrder"
+                    onClick={() => handleDelete(eachRestMenu._id)}
+                  >
+                    Delete
+                  </button>
+                )}
+              </div>
+
+              <div>
+                {props.user?.role !== "owner" && (
+                  <form onSubmit={() => handleSubmit(eachRestMenu)}>
+                    <input
+                      type="number"
+                      name="quantity"
+                      value={quantity}
+                      onChange={handleChange}
+                    />
+                    <button>Order</button>
+                  </form>
+                )}
+              </div>
+            </div>
+          );
+        })}
       </div>
-       }
+      <div>
+        <h4>Food Order</h4>
+      
 
-      {restMenu.map((eachRestMenu) => {
-        return (
-
-          <div className="eachDish">
-            {/* <Link to={`/restaurant/${eachRestMenu._id}/menu`}><h3>{eachRestMenu.name}</h3></Link> */}
-            <div>
-            <h3>{eachRestMenu.name}</h3>
-            <h3>{eachRestMenu.price} $</h3>
-            <p>{eachRestMenu.description}</p>
-            </div>
-
-            <div>
-            {isOwner && (
-              <button onClick={() => handleEdit(eachRestMenu._id)}>Edit</button>
-            )}
-            {isOwner && (
-              <button onClick={() => handleDelete(eachRestMenu._id)}>
-                Delete
-              </button>
-            )}
-            </div>
-
-            <div>
-            {props.user?.role !== "owner" &&
-             <form onSubmit={() => handleSubmit(eachRestMenu)} >
-              <input 
-              type="number" 
-              name="quantity" 
-              value={quantity} 
-              onChange = {handleChange}/>
-            <button>Order</button>
-            </form> 
-            }
-            </div>
-            
-            
-
-          </div>
-        );
-      })}
-
-      <FoodOrder boughtFood={boughtFood}/>
+      <FoodOrder boughtFood={boughtFood} />
+      </div>
     </div>
   );
 }

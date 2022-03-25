@@ -16,14 +16,24 @@
 }
 
 .eachDish {
-  padding-left: 50px;
+  padding-left: 150px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
+
 
 .formSign {
   width: 800px;
   align-items: center;
+}
+
+.containerFoodOrder {
+  margin: 20px 20px 50px;
+}
+
+.eachRestMenu {
+  font-size: 20px;
 }
 
 .myRestaurants {
@@ -130,6 +140,16 @@
   color: green;
   margin-left: 5px;
 }
+
+.buttonFoodOrder {
+  border: none;
+  width: 120px;
+  height: 30px;
+  margin: 5px;
+  background-color: lightsteelblue;
+  border-radius: 10px;
+}
+
 
 .containerHideShow {
   border-radius: 10px;
